@@ -1,7 +1,7 @@
 import '../styles/App.scss';
 import { useState } from 'react';
-import cover from '../images/cover.jpeg';
-import user from '../images/user.jpeg';
+import cover from '../images/periodico.jpg';
+import user from '../images/detectivenegro.jpg';
 
 function App() {
   const [nameProject, setNameProject] = useState('');
