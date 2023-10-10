@@ -12,10 +12,49 @@ function App() {
   const [desc, setDesc] = useState('');
   const [nameAuthor, setNameAuthor] = useState('');
   const [job, setJob] = useState('');
+  const [error, setError] = useState('');
+
+  const handleCard = () => {
+    const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+
+    if (demo !== '' && !regex.test(demo)) {
+      setError('La URl del campo demo no es válida');
+    }
+    if (repo !== '' && !regex.test(repo)) {
+      setError('La URl del campo repo no es válida');
+    }
+
+    if (job === '') {
+      setError('El campo del trabajo es obligatorio');
+    }
+    else if (nameProject === '') {
+      setError('El campo del nombre del proyecto es obligatorio');
+    }
+    else if (technologies === '') {
+      setError('El campo de las tecnologias es obligatorio');
+    }
+    else if (slogan === '') {
+      setError('El campo slogan es obligatorio');
+    }
+    else if (desc === '') {
+      setError('El campo de la descripcion es obligatorio');
+    }
+   else  if (nameAuthor === '') {
+      setError('El campo del autor es obligatorio');
+    }
+    else if (repo === '') {
+      setError('El campo repo es obligatorio');
+    }
+    else if (demo === '') {
+      setError('El campo demo es obligatorio');
+    } else {
+      setError('');
+    }
+  };
 
   const handleInput = (event) => {
     const inputId = event.target.id;
-    console.log(event.target.value);
+
     if (inputId === 'nameProject') {
       setNameProject(event.target.value);
     } else if (inputId === 'slogan') {
@@ -58,14 +97,14 @@ function App() {
               <section className="technologies">
                 <p className="text">{technologies || 'React JS, MongoDB'}</p>
                 <div>
-                <a href={'https://www.'+repo} target='_blank' rel='noopener noreferrer'>
-                  <i className="fa-brands fa-github"></i>
-                </a>
-                <a href={'https://www.'+demo} target='_blank' rel='noopener noreferrer'>
+                  <a href={repo} target="_blank" rel="noopener noreferrer">
+                    <i className="fa-brands fa-github"></i>
+                  </a>
+                  <a href={demo} target="_blank" rel="noopener noreferrer">
                     <i className="fa-solid fa-globe"></i>
-                </a>
+                  </a>
                 </div>
-              </section> 
+              </section>
             </section>
 
             <section className="info-autor">
@@ -92,6 +131,8 @@ function App() {
               name="name"
               id="nameProject"
               onChange={handleInput}
+              value={nameProject}
+              required
             />
             <input
               className="input"
@@ -100,6 +141,8 @@ function App() {
               id="slogan"
               placeholder="Slogan"
               onChange={handleInput}
+              value={slogan}
+              required
             />
             <input
               className="input"
@@ -108,6 +151,8 @@ function App() {
               id="repo"
               placeholder="Repo"
               onChange={handleInput}
+              value={repo}
+              required
             />
             <input
               className="input"
@@ -116,6 +161,8 @@ function App() {
               name="demo"
               id="demo"
               onChange={handleInput}
+              value={demo}
+              required
             />
             <input
               className="input"
@@ -124,6 +171,8 @@ function App() {
               name="technologies"
               id="technologies"
               onChange={handleInput}
+              value={technologies}
+              required
             />
             <textarea
               className="textarea"
@@ -132,6 +181,8 @@ function App() {
               name="desc"
               id="desc"
               onChange={handleInput}
+              value={desc}
+              required
             ></textarea>
           </fieldset>
 
@@ -148,6 +199,8 @@ function App() {
               name="autor"
               id="nameAuthor"
               onChange={handleInput}
+              value={nameAuthor}
+              required
             />
             <input
               className="input"
@@ -156,6 +209,8 @@ function App() {
               name="job"
               id="job"
               onChange={handleInput}
+              value={job}
+              required
             />
           </fieldset>
 
@@ -164,7 +219,10 @@ function App() {
             <button className="btn">Subir foto de autora</button>
           </section>
           <section className="buttons-img">
-            <button className="btn-large">Crear Tarjeta</button>
+            <button onClick={handleCard} className="btn-large">
+              Crear Tarjeta
+            </button>
+            <p>{error}</p>
           </section>
 
           <section className="card">
