@@ -4,73 +4,40 @@ import cover from '../images/periodico.jpg';
 import user from '../images/detectivenegro.jpg';
 
 function App() {
-  const [nameProject, setNameProject] = useState('');
-  const [slogan, setSlogan] = useState('');
-  const [repo, setRepo] = useState('');
-  const [demo, setDemo] = useState('');
-  const [technologies, setTechnologies] = useState('');
-  const [desc, setDesc] = useState('');
-  const [nameAuthor, setNameAuthor] = useState('');
-  const [job, setJob] = useState('');
   const [error, setError] = useState('');
+
+  const [data, setData] = useState({nameProject: "", slogan:"", repo:"", demo:"", technologies:"",desc:"", nameAuthor:"",job:""})
+  const handleInput = (ev) => {
+    const id = ev.target.id;
+    const value = ev.target.value;
+    setData({...data,[id]: value})
+  }
 
   const handleCard = () => {
     const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
 
-    if (demo !== '' && !regex.test(demo)) {
-      setError('La URl del campo demo no es válida');
-    }
-    if (repo !== '' && !regex.test(repo)) {
-      setError('La URl del campo repo no es válida');
-    }
-
-    if (job === '') {
-      setError('El campo del trabajo es obligatorio');
-    }
-    else if (nameProject === '') {
+    if (data.nameProject === '') {
       setError('El campo del nombre del proyecto es obligatorio');
-    }
-    else if (technologies === '') {
-      setError('El campo de las tecnologias es obligatorio');
-    }
-    else if (slogan === '') {
+    }else if (data.slogan === '') {
       setError('El campo slogan es obligatorio');
-    }
-    else if (desc === '') {
-      setError('El campo de la descripcion es obligatorio');
-    }
-   else  if (nameAuthor === '') {
-      setError('El campo del autor es obligatorio');
-    }
-    else if (repo === '') {
+    }else if(data.repo !== '' && !regex.test(data.repo)) {
+      setError('La URl del campo repo no es válida');
+    }else if (data.repo === '') {
       setError('El campo repo es obligatorio');
-    }
-    else if (demo === '') {
+    }else if (data.demo !== '' && !regex.test(data.demo)) {
+      setError('La URl del campo demo no es válida');
+    }else if (data.demo === '') {
       setError('El campo demo es obligatorio');
-    } else {
+    }else if (data.technologies === '') {
+      setError('El campo de las tecnologias es obligatorio');
+    }else if (data.desc === '') {
+      setError('El campo de la descripcion es obligatorio');
+    }else  if (data.nameAuthor === '') {
+      setError('El campo del autor es obligatorio');
+    }else if (data.job === '') {
+      setError('El campo del trabajo es obligatorio');
+    }else {
       setError('');
-    }
-  };
-
-  const handleInput = (event) => {
-    const inputId = event.target.id;
-
-    if (inputId === 'nameProject') {
-      setNameProject(event.target.value);
-    } else if (inputId === 'slogan') {
-      setSlogan(event.target.value);
-    } else if (inputId === 'repo') {
-      setRepo(event.target.value);
-    } else if (inputId === 'demo') {
-      setDemo(event.target.value);
-    } else if (inputId === 'technologies') {
-      setTechnologies(event.target.value);
-    } else if (inputId === 'desc') {
-      setDesc(event.target.value);
-    } else if (inputId === 'nameAuthor') {
-      setNameAuthor(event.target.value);
-    } else if (inputId === 'job') {
-      setJob(event.target.value);
     }
   };
 
@@ -88,19 +55,19 @@ function App() {
               <p className="subtitle">Personal Project Card</p>
               <hr className="line" />
 
-              <h2 className="title">{nameProject || 'Elegant Workspace'}</h2>
-              <p className="slogan">{slogan || 'Diseños Exclusivos'}</p>
+              <h2 className="title">{data.nameProject || 'Elegant Workspace'}</h2>
+              <p className="slogan">{data.slogan || 'Diseños Exclusivos'}</p>
               <p className="desc">
-                {desc ||
+                {data.desc ||
                   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum'}
               </p>
               <section className="technologies">
-                <p className="text">{technologies || 'React JS, MongoDB'}</p>
+                <p className="text">{data.technologies || 'React JS, MongoDB'}</p>
                 <div>
-                  <a href={repo} target="_blank" rel="noopener noreferrer">
+                  <a href={data.repo} target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-github"></i>
                   </a>
-                  <a href={demo} target="_blank" rel="noopener noreferrer">
+                  <a href={data.demo} target="_blank" rel="noopener noreferrer">
                     <i className="fa-solid fa-globe"></i>
                   </a>
                 </div>
@@ -109,8 +76,8 @@ function App() {
 
             <section className="info-autor">
               <img className="image" src={user} alt="" />
-              <p className="job">{job || 'Full Stack Developer'}</p>
-              <p className="name">{nameAuthor || 'Emmelie Björklund'}</p>
+              <p className="job">{data.job || 'Full Stack Developer'}</p>
+              <p className="name">{data.nameAuthor || 'Emmelie Björklund'}</p>
             </section>
           </section>
         </section>
@@ -131,7 +98,7 @@ function App() {
               name="name"
               id="nameProject"
               onChange={handleInput}
-              value={nameProject}
+              value={data.nameProject}
               required
             />
             <input
@@ -141,7 +108,7 @@ function App() {
               id="slogan"
               placeholder="Slogan"
               onChange={handleInput}
-              value={slogan}
+              value={data.slogan}
               required
             />
             <input
@@ -151,7 +118,7 @@ function App() {
               id="repo"
               placeholder="Repo"
               onChange={handleInput}
-              value={repo}
+              value={data.repo}
               required
             />
             <input
@@ -161,7 +128,7 @@ function App() {
               name="demo"
               id="demo"
               onChange={handleInput}
-              value={demo}
+              value={data.demo}
               required
             />
             <input
@@ -171,7 +138,7 @@ function App() {
               name="technologies"
               id="technologies"
               onChange={handleInput}
-              value={technologies}
+              value={data.technologies}
               required
             />
             <textarea
@@ -181,7 +148,7 @@ function App() {
               name="desc"
               id="desc"
               onChange={handleInput}
-              value={desc}
+              value={data.desc}
               required
             ></textarea>
           </fieldset>
@@ -199,7 +166,7 @@ function App() {
               name="autor"
               id="nameAuthor"
               onChange={handleInput}
-              value={nameAuthor}
+              value={data.nameAuthor}
               required
             />
             <input
@@ -209,7 +176,7 @@ function App() {
               name="job"
               id="job"
               onChange={handleInput}
-              value={job}
+              value={data.job}
               required
             />
           </fieldset>
