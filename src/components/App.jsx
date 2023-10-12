@@ -6,37 +6,46 @@ import user from '../images/detectivenegro.jpg';
 function App() {
   const [error, setError] = useState('');
 
-  const [data, setData] = useState({nameProject: "", slogan:"", repo:"", demo:"", technologies:"",desc:"", nameAuthor:"",job:""})
+  const [data, setData] = useState({
+    nameProject: '',
+    slogan: '',
+    repo: '',
+    demo: '',
+    technologies: '',
+    desc: '',
+    nameAuthor: '',
+    job: '',
+  });
   const handleInput = (ev) => {
     const id = ev.target.id;
     const value = ev.target.value;
-    setData({...data,[id]: value})
-  }
+    setData({ ...data, [id]: value });
+  };
 
   const handleCard = () => {
     const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
 
     if (data.nameProject === '') {
       setError('El campo del nombre del proyecto es obligatorio');
-    }else if (data.slogan === '') {
+    } else if (data.slogan === '') {
       setError('El campo slogan es obligatorio');
-    }else if(data.repo !== '' && !regex.test(data.repo)) {
+    } else if (data.repo !== '' && !regex.test(data.repo)) {
       setError('La URl del campo repo no es válida');
-    }else if (data.repo === '') {
+    } else if (data.repo === '') {
       setError('El campo repo es obligatorio');
-    }else if (data.demo !== '' && !regex.test(data.demo)) {
+    } else if (data.demo !== '' && !regex.test(data.demo)) {
       setError('La URl del campo demo no es válida');
-    }else if (data.demo === '') {
+    } else if (data.demo === '') {
       setError('El campo demo es obligatorio');
-    }else if (data.technologies === '') {
+    } else if (data.technologies === '') {
       setError('El campo de las tecnologias es obligatorio');
-    }else if (data.desc === '') {
+    } else if (data.desc === '') {
       setError('El campo de la descripcion es obligatorio');
-    }else  if (data.nameAuthor === '') {
+    } else if (data.nameAuthor === '') {
       setError('El campo del autor es obligatorio');
-    }else if (data.job === '') {
+    } else if (data.job === '') {
       setError('El campo del trabajo es obligatorio');
-    }else {
+    } else {
       setError('');
     }
   };
@@ -46,24 +55,36 @@ function App() {
       <header className="header">
         <p className="text">Proyectos Molones</p>
       </header>
+      <section className="subHeader">
+        <h2 className="subHeader__h2">Proyectos Molones</h2>
+        <p className="subHeader__h2-p">
+          En esta agencia, ningún proyecto podrá esconderse. El talento quedará
+          al descubierto.
+        </p>
+        <button className="btn-projects">VER PROYECTOS</button>
+      </section>
+      <div className='div__MQ'>
       <main className="main">
         <section className="preview">
           <img className="image" src={cover} alt="" />
-
           <section className="autor">
             <section className="info-project">
               <p className="subtitle">Personal Project Card</p>
               <hr className="line" />
 
-              <h2 className="title">{data.nameProject || 'Elegant Workspace'}</h2>
+              <h2 className="title">
+                {data.nameProject || 'Elegant Workspace'}
+              </h2>
               <p className="slogan">{data.slogan || 'Diseños Exclusivos'}</p>
               <p className="desc">
                 {data.desc ||
-                  'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum'}
+                  'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam.'}
               </p>
               <section className="technologies">
-                <p className="text">{data.technologies || 'React JS, MongoDB'}</p>
-                <div>
+                <p className="text">
+                  {data.technologies || 'React JS, MongoDB'}
+                </p>
+                <div className='icons'>
                   <a href={data.repo} target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-github"></i>
                   </a>
@@ -158,7 +179,7 @@ function App() {
             <hr className="line" />
           </section>
 
-          <fieldset className="autor">
+          <fieldset className="autor__fielset">
             <input
               className="input"
               type="text"
@@ -200,6 +221,7 @@ function App() {
           </section>
         </section>
       </main>
+      </div>
     </div>
   );
 }
