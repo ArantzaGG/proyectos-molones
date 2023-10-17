@@ -27,7 +27,7 @@ const CardData = ({ data }) => {
       </section>
 
       <section className="info-autor">
-        <img className="image" src={user} alt="" />
+        <img className="imageProfile" src={user} alt="" />
         <p className="job">{data.job || 'Full Stack Developer'}</p>
         <p className="name">{data.nameAuthor || 'Emmelie Björklund'}</p>
       </section>
