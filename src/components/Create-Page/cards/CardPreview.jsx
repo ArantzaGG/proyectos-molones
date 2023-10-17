@@ -1,11 +1,12 @@
 import CardData from "./CardData";
-import cover from '../../images/periodico.jpg';
+import cover from '../../../images/periodico.jpg';
 
-const CardPreview = () => {
+
+const CardPreview = ({ data }) => {
     return (
     <section className="preview">
     <img className="image" src={cover} alt="" />
-    <CardData/>
+    <CardData data={data}/>
   </section>
   );
 };

@@ -17,6 +17,7 @@ function App() {
     nameAuthor: '',
     job: '',
   });
+  
   const handleInput = (ev) => {
     const id = ev.target.id;
     const value = ev.target.value;
@@ -56,8 +57,8 @@ function App() {
       <Header/>
       <div className='div__MQ'>
       <main className="main">
-        <CardPreview/>
-        <Form/>
+        <CardPreview data={data}/>
+        <Form data={data}/>
       </main>
       </div>
     </div>
