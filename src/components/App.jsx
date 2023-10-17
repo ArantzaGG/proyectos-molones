@@ -2,6 +2,7 @@ import '../styles/App.scss';
 import { useState } from 'react';
 import cover from '../images/periodico.jpg';
 import user from '../images/detectivenegro.jpg';
+import Header from './Header/Header';
 
 function App() {
   const [error, setError] = useState('');
@@ -52,17 +53,7 @@ function App() {
 
   return (
     <div className="container">
-      <header className="header">
-        <p className="text">Proyectos Molones</p>
-      </header>
-      <section className="subHeader">
-        <h2 className="subHeader__h2">Proyectos Molones</h2>
-        <p className="subHeader__h2-p">
-          En esta agencia, ningún proyecto podrá esconderse. El talento quedará
-          al descubierto.
-        </p>
-        <button className="btn-projects">VER PROYECTOS</button>
-      </section>
+      <Header/>
       <div className='div__MQ'>
       <main className="main">
         <section className="preview">
