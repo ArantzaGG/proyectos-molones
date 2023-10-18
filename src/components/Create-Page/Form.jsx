@@ -1,6 +1,41 @@
+import React from 'react'
 
-const Form = () => {
 
+
+const Form = ({ data, updateInput, updateCard, error }) => {
+  const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+
+  const handleCard = () => {
+    if (data.nameProject === '') {
+      updateCard('El campo del nombre del proyecto es obligatorio');
+    } else if (data.slogan === '') {
+      updateCard('El campo slogan es obligatorio');
+    } else if (data.repo !== '' && !regex.test(data.repo)) {
+      updateCard('La URL del campo repo no es válida');
+    } else if (data.repo === '') {
+      updateCard('El campo repo es obligatorio');
+    } else if (data.demo !== '' && !regex.test(data.demo)) {
+      updateCard('La URL del campo demo no es válida');
+    } else if (data.demo === '') {
+      updateCard('El campo demo es obligatorio');
+    } else if (data.technologies === '') {
+      updateCard('El campo de las tecnologías es obligatorio');
+    } else if (data.desc === '') {
+      updateCard('El campo de la descripción es obligatorio');
+    } else if (data.nameAuthor === '') {
+      updateCard('El campo del autor es obligatorio');
+    } else if (data.job === '') {
+      updateCard('El campo del trabajo es obligatorio');
+    } else {
+      updateCard(''); 
+    }
+  };
+
+  const handleInput = (ev) => {
+    const id = ev.target.id;
+    const value = ev.target.value;
+    updateInput({ ...data, [id]: value });
+  };
 
     return (<section className="form">
     <h2 className="title">Información</h2>
