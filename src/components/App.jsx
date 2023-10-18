@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import Form from './Create-Page/Form';
 import CardPreview from './Create-Page/cards/CardPreview';
 
+
 function App() {
   const [error, setError] = useState('');
 
@@ -22,6 +23,7 @@ function App() {
   };
   
   const updateCard = (error) => {
+
     setError(error);
   };
   
