@@ -27,7 +27,7 @@ const Form = ({ data, updateInput, updateCard, error }) => {
     } else if (data.job === '') {
       updateCard('El campo del trabajo es obligatorio');
     } else {
-      updateCard(''); // Limpia el mensaje de error si no hay errores
+      updateCard(''); 
     }
   };
 
