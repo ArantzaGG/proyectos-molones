@@ -5,8 +5,9 @@ import {useState} from 'react'
 const Form = ({ data, updateInput, updateCard, error }) => {
   const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
   const [linkUrl, setLinkUrl] = useState('');
+  const [hidden, setHidden] = useState(true);
   const handleCard = () => {
-    if (data.nameProject === '') {
+    if (data.name === '') {
       updateCard('El campo del nombre del proyecto es obligatorio');
     } else if (data.slogan === '') {
       updateCard('El campo slogan es obligatorio');
@@ -22,7 +23,7 @@ const Form = ({ data, updateInput, updateCard, error }) => {
       updateCard('El campo de las tecnologías es obligatorio');
     } else if (data.desc === '') {
       updateCard('El campo de la descripción es obligatorio');
-    } else if (data.nameAuthor === '') {
+    } else if (data.autor === '') {
       updateCard('El campo del autor es obligatorio');
     } else if (data.job === '') {
       updateCard('El campo del trabajo es obligatorio');
@@ -31,6 +32,7 @@ const Form = ({ data, updateInput, updateCard, error }) => {
     }
     callToApi(data).then((response) => {
       setLinkUrl(response);
+      setHidden(false);
     });
   };
 
@@ -55,9 +57,9 @@ const Form = ({ data, updateInput, updateCard, error }) => {
           type="text"
           placeholder="Nombre del proyecto"
           name="name"
-          id="nameProject"
+          id="name"
           onChange={handleInput}
-          value={data.nameProject}
+          value={data.name}
           required
         />
         <input
@@ -123,9 +125,9 @@ const Form = ({ data, updateInput, updateCard, error }) => {
           type="text"
           placeholder="Nombre"
           name="autor"
-          id="nameAuthor"
+          id="autor"
           onChange={handleInput}
-          value={data.nameAuthor}
+          value={data.autor}
           required
         />
         <input
@@ -151,7 +153,7 @@ const Form = ({ data, updateInput, updateCard, error }) => {
         <p>{error}</p>
       </section>
 
-      <section className="card">
+      <section className={`card ${hidden ? 'hidden' : ''}`}>
         <span className=""> La tarjeta ha sido creada: </span>
         <a href={linkUrl} className="" target="_blank" rel="noreferrer">
           {linkUrl}

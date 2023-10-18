@@ -6,8 +6,9 @@ const callToApi = (data) => {
   })
     .then((response) => response.json())
     .then((result) => {
+      console.log(result);
       if (result.success) {
-        return result.linkUrl;
+        return result.cardURL;
       }
     });
 };
