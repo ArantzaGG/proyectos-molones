@@ -1,3 +1,6 @@
+import React from 'react'
+
+
 
 const Form = ({ data, updateInput, updateCard, error }) => {
   const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
