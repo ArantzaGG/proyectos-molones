@@ -68,7 +68,6 @@ Este proyecto se ha desarrollado utilizando las siguientes tecnologías:
 
 ## Autores
 
-- Arancha Cristina Darling y Barbara
+- Arantxa Cristina Darling y Barbara
 
 
-## Licencia
