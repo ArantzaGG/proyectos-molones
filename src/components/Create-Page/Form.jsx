@@ -1,8 +1,9 @@
 import React from 'react';
 import callToApi from '../../services/fetch';
 import {useState} from 'react'
+import GetAvatar from '../Create-Page/GetAvatar';
 
-const Form = ({ data, updateInput, updateCard, error }) => {
+const Form = ({ data, updateInput, updateCard, error, avatar, updateAvatar, updateAvatarProfile, avatarProfile }) => {
   const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
   const [linkUrl, setLinkUrl] = useState('');
   const [hidden, setHidden] = useState(true);
@@ -42,6 +43,7 @@ const Form = ({ data, updateInput, updateCard, error }) => {
     updateInput({ ...data, [id]: value });
   };
 
+ 
   return (
     <section className="form">
       <h2 className="title">Información</h2>
@@ -143,8 +145,8 @@ const Form = ({ data, updateInput, updateCard, error }) => {
       </fieldset>
 
       <section className="buttons-img">
-        <button className="btn">Subir foto de proyecto</button>
-        <button className="btn">Subir foto de autora</button>
+      <button className='btn'><GetAvatar avatar={avatar} update={updateAvatar} text= "Subir imagen del proyecto" /></button>
+        <button className="btn"><GetAvatar update={updateAvatarProfile} avatarProfile={avatarProfile} text= "Subir tu foto personal"/></button>
       </section>
       <section className="buttons-img">
         <button onClick={handleCard} className="btn-large">

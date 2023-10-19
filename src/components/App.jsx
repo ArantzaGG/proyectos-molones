@@ -5,9 +5,9 @@ import Form from './Create-Page/Form';
 import CardPreview from './Create-Page/cards/CardPreview';
 
 
+
 function App() {
   const [error, setError] = useState('');
-
   const [data, setData] = useState({
     name: '',
     slogan: '',
@@ -25,20 +25,30 @@ function App() {
   };
   
   const updateCard = (error) => {
-
     setError(error);
   };
-  
+
+  const [avatar, setAvatar] = useState('');
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
+ 
+  const [avatarProfile, setAvatarProfile] = useState('');
+  const updateAvatarProfile = (avatarProfile) => {
+    setAvatarProfile(avatarProfile);
+  };
 
   return (
     <div className="container">
       <Header/>
       <div className='div__MQ'>
       <main className="main">
-        <CardPreview data={data}/>
-        <Form data={data} updateInput={updateInput} updateCard={updateCard} error={error}/>
+        <CardPreview updateAvatar={updateAvatar} avatar={avatar} data={data} updateAvatarProfile={updateAvatarProfile} avatarProfile={avatarProfile}/>
+        <Form updateAvatarProfile={updateAvatarProfile} avatarProfile={avatarProfile} updateAvatar={updateAvatar} avatar={avatar} data={data} updateInput={updateInput} updateCard={updateCard} error={error}/>
       </main>
       </div>
+    
+    
     </div>
   );
 }

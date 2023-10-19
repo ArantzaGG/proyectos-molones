@@ -1,13 +1,15 @@
-import user from '../../../images/detectivenegro.jpg';
+import defaultAvatar from '../../../images/detectivenegro.jpg';
 
-const CardData = ({ data }) => {
+const CardData = ({ data, avatarProfile }) => {
+  const profileAvatar = avatarProfile === '' ? defaultAvatar : avatarProfile;
+  console.log(avatarProfile);
   return (
     <section className="autor">
       <section className="info-project">
         <p className="subtitle">Personal Project Card</p>
         <hr className="line" />
 
-        <h2 className="title">{data.nameProject || 'Elegant Workspace'}</h2>
+        <h2 className="title">{data.name || 'Elegant Workspace'}</h2>
         <p className="slogan">{data.slogan || 'Diseños Exclusivos'}</p>
         <p className="desc">
           {data.desc ||
@@ -27,9 +29,12 @@ const CardData = ({ data }) => {
       </section>
 
       <section className="info-autor">
-        <img className="imageProfile" src={user} alt="" />
+      <div
+        className="imageProfile"
+        style={{ backgroundImage: `url(${profileAvatar})` }}
+      ></div>
         <p className="job">{data.job || 'Full Stack Developer'}</p>
-        <p className="name">{data.nameAuthor || 'Emmelie Björklund'}</p>
+        <p className="name">{data.autor || 'Emmelie Björklund'}</p>
       </section>
     </section>
   );
