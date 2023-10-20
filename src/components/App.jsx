@@ -45,7 +45,7 @@ function App() {
       <Header/>
       <div className='div__MQ'>
       <main className="main">
-        <CardPreview updateAvatar={updateAvatar} avatar={avatar} data={data} updateAvatarProfile={updateAvatarProfile} avatarProfile={avatarProfile}/>
+        <CardPreview  avatar={avatar} data={data} avatarProfile={avatarProfile}/>
         <Form updateAvatarProfile={updateAvatarProfile} avatarProfile={avatarProfile} updateAvatar={updateAvatar} avatar={avatar} data={data} updateInput={updateInput} updateCard={updateCard} error={error}/>
       </main>
       </div>
