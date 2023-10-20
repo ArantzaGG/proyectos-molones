@@ -2,6 +2,7 @@ import React from 'react';
 import callToApi from '../../services/fetch';
 import {useState} from 'react'
 import GetAvatar from '../Create-Page/GetAvatar';
+import localStorage from '../../services/localStorage';
 
 const Form = ({ data, updateInput, updateCard, error, avatar, updateAvatar, updateAvatarProfile, avatarProfile }) => {
   const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
@@ -41,6 +42,7 @@ const Form = ({ data, updateInput, updateCard, error, avatar, updateAvatar, upda
     const id = ev.target.id;
     const value = ev.target.value;
     updateInput({ ...data, [id]: value });
+    localStorage.set('storagedData', data)
   };
 
  
