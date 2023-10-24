@@ -1,10 +1,12 @@
 import '../styles/App.scss';
 import { useState } from 'react';
+import {Routes, Route} from "react-router";
 import Header from './Header/Header';
 import Form from './Create-Page/Form';
 import CardPreview from './Create-Page/cards/CardPreview';
 import localStorage from '../services/localStorage';
 import Footer from './Footer/Footer';
+
 
 function App() {
   const [error, setError] = useState('');
@@ -42,6 +44,9 @@ function App() {
     setAvatarProfile(avatarProfile);
     data.image = avatarProfile;
   };
+
+  //ruta principal / = landing
+  // ruta contenedor del <div>
 
   return (
     <div className='container'>
