@@ -1,10 +1,10 @@
-
-import logo from '../../images/solo-logo.png'
+import logo from '../../images/solo-logo.png';
+import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <div>
       <header className='header'>
-        <img src={logo} alt="logo" className='header__logo'/>
+        <img src={logo} alt='logo' className='header__logo' />
         <p className='header__text'>Proyectos Molones</p>
       </header>
       <section className='subHeader'>
@@ -13,7 +13,9 @@ const Header = () => {
           En esta agencia, ningún proyecto podrá esconderse. El talento quedará
           al descubierto.
         </p>
-        <button className='subHeader__btn'>VER PROYECTOS</button>
+        <Link className='subHeader__btn' to='/'>
+          <button className='subHeader__btn'>Ver proyectos</button>
+        </Link>
       </section>
     </div>
   );
