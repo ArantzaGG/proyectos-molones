@@ -6,7 +6,7 @@ import CreatePage from './Create-Page/CreatePage';
 import { useLocation, matchPath } from 'react-router';
 import logo from '../images/solo-logo.png';
 import { Link } from 'react-router-dom';
-import CardData from './Create-Page/cards/CardData';
+
 
 function App() {
   const [error, setError] = useState('');
