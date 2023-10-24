@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import Form from './Create-Page/Form';
 import CardPreview from './Create-Page/cards/CardPreview';
 import localStorage from '../services/localStorage';
+import Footer from './Footer/Footer';
 
 function App() {
   const [error, setError] = useState('');
@@ -64,6 +65,7 @@ function App() {
           />
         </main>
       </div>
+      <Footer/>
     </div>
   );
 }
