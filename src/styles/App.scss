@@ -377,3 +377,14 @@
     align-items: flex-start;
   }
 }
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  &__logo {
+    width: 200px;
+  }
+}

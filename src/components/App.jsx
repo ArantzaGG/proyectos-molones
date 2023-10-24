@@ -6,8 +6,7 @@ import CreatePage from './Create-Page/CreatePage';
 import { useLocation, matchPath } from 'react-router';
 import logo from '../images/solo-logo.png';
 import { Link } from 'react-router-dom';
-import Footer from './Footer/Footer';
-import Header from './Header/Header';
+import CardData from './Create-Page/cards/CardData';
 
 function App() {
   const [error, setError] = useState('');
@@ -46,13 +45,12 @@ function App() {
     data.image = avatarProfile;
   };
 
-  
   const { pathname } = useLocation();
   const routeData = matchPath('/CreatePage', pathname);
   console.log(routeData);
 
   return (
-    <div className='landing'>
+    <>
       <Routes>
         <Route
           path='/'
@@ -62,15 +60,17 @@ function App() {
                 <img src={logo} alt='logo' className='header__logo' />
                 <p className='header__text'>Proyectos Molones</p>
               </header>
-              <img className='Logo' src={logo} alt='logo' />
-              <h1>Proyectos Molones</h1>
-              <h2>¿Quieres publicar tu proyecto con nosotras?</h2>
-              <p>¡Has llegado a la web correcta!</p>
-              <Link to='/CreatePage'>
-                <button className='btn-Start'>Comienza Ahora</button>
-              </Link>
-
-              <Footer />
+              <div className='landing'>
+                <img className='landing__logo' src={logo} alt='logo' />
+                <h1 className='landing__title'>Proyectos Molones</h1>
+                <h2 className='landing__subtitle'>
+                  ¿Quieres publicar tu proyecto con nosotras?
+                </h2>
+                <p className='landing__p'>¡Has llegado a la web correcta!</p>
+                <Link to='/CreatePage'>
+                  <button className='btn-Start'>Comienza Ahora</button>
+                </Link>
+              </div>
             </>
           }
         />
@@ -90,7 +90,7 @@ function App() {
           }
         />
       </Routes>
-    </div>
+    </>
   );
 }
 
