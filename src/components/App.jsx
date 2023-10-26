@@ -4,13 +4,7 @@ import { Routes, Route } from 'react-router';
 import localStorage from '../services/localStorage';
 import CreatePage from './Create-Page/CreatePage';
 import { useLocation, matchPath } from 'react-router';
-<<<<<<< HEAD
 import Landing from './Landing';
-=======
-import logo from '../images/solo-logo.png';
-import { Link } from 'react-router-dom';
-
->>>>>>> 21e38ec1107b3f287cb928d85e8836b785e514bc
 
 function App() {
   const [error, setError] = useState('');

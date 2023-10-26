@@ -1,5 +1,7 @@
 import logo from '../../images/solo-logo.png';
 import { Link } from 'react-router-dom';
+import '../../styles/Header.scss';
+
 const Header = () => {
   return (
     <div>
@@ -7,16 +9,7 @@ const Header = () => {
         <img src={logo} alt='logo' className='header__logo' />
         <p className='header__text'>Proyectos Molones</p>
       </header>
-      <section className='subHeader'>
-        <h2 className='subHeader__h2'>Proyectos Molones</h2>
-        <p className='subHeader__p'>
-          En esta agencia, ningún proyecto podrá esconderse. El talento quedará
-          al descubierto.
-        </p>
-        <Link className='subHeader__btn' to='/'>
-          <button className='subHeader__btn'>Ver proyectos</button>
-        </Link>
-      </section>
+      
     </div>
   );
 };

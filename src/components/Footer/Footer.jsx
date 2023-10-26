@@ -1,4 +1,5 @@
-import logo from '../../images/solo-logo.png'
+import logo from '../../images/solo-logo.png';
+import '../../styles/Footer.scss';
 const Footer = () => {
   return (
     

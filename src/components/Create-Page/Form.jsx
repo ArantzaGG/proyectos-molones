@@ -3,7 +3,7 @@ import callToApi from '../../services/fetch';
 import { useState } from 'react';
 import GetAvatar from '../Create-Page/GetAvatar';
 import localStorage from '../../services/localStorage';
-import { set } from 'immutable';
+import '../../styles/Form.scss';
 
 const Form = ({
   data,

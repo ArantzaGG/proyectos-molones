@@ -1,11 +1,11 @@
 import defaultAvatar from '../../../images/detectivenegro.jpg';
+import '../../../styles/CardPreview.scss'
 
-
-const CardData = ({ data, avatarProfile }) => {
+const CardData = ({ data, avatarProfile, className }) => {
   const profileAvatar = avatarProfile === '' ? defaultAvatar : avatarProfile;
   console.log(avatarProfile);
   return (
-    <section className='preview__card landing_card'>
+    <section className={`preview__card ${className}`}>
       <section className='preview__card--project'>
         <p className='subtitle'>Personal Project Card</p>
         <hr className='line' />
