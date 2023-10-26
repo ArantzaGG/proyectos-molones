@@ -3,8 +3,8 @@ import Header from "../Header/Header";
 import Form from "../Create-Page/Form";
 import CardPreview from "../Create-Page/cards/CardPreview";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
 import SubHeader from "../Header/SubHeader";
+import PropTypes from 'prop-types';
 
 function CreatePage({
   avatar,
@@ -48,5 +48,16 @@ function CreatePage({
     </>
   );
 }
+
+CreatePage.propTypes = {
+  data: PropTypes.string,
+  updateInput: PropTypes.string,
+  updateCard: PropTypes.func,
+  error: PropTypes.string,
+  avatar: PropTypes.string,
+  updateAvatar: PropTypes.func,
+  updateAvatarProfile: PropTypes.func,
+  avatarProfile: PropTypes.string,
+};
 
 export default CreatePage;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../../styles/SubHeader.scss";
+import PropTypes from "prop-types";
 
 function SubHeader({ title, subTitle, textButton, btnLink, desc }) {
   return (
@@ -13,5 +14,7 @@ function SubHeader({ title, subTitle, textButton, btnLink, desc }) {
     </section>
   );
 }
-
+SubHeader.propTypes = {
+  title: PropTypes.string, subTitle: PropTypes.string, textButton: PropTypes.string, btnLink: PropTypes.string, desc: PropTypes.string 
+}
 export default SubHeader;

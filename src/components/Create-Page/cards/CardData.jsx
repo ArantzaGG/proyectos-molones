@@ -1,5 +1,6 @@
 import defaultAvatar from '../../../images/detectivenegro.jpg';
 import '../../../styles/CardPreview.scss'
+import PropTypes from 'prop-types';
 
 const CardData = ({ data, avatarProfile, className }) => {
   const profileAvatar = avatarProfile === '' ? defaultAvatar : avatarProfile;
@@ -39,5 +40,10 @@ const CardData = ({ data, avatarProfile, className }) => {
       </section>
     </section>
   );
+};
+CardData.propTypes = {
+  data: PropTypes.string,
+  className: PropTypes.string,
+  avatarProfile: PropTypes.string,
 };
 export default CardData;

@@ -70,10 +70,12 @@
 
   .buttons-img {
     border-radius: 20px;
+    
 
     .btn {
       margin: 2px;
       padding: 2px;
+      cursor: pointer;
       @media all and (min-width: 768px) {
         width: 200px;
         height: 30px;
@@ -81,6 +83,7 @@
     }
 
     .btn-large {
+      cursor: pointer;
       padding: 2px;
       @media all and (min-width: 768px) {
         width: 200px;
