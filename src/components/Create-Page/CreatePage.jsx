@@ -4,6 +4,7 @@ import Form from '../Create-Page/Form';
 import CardPreview from '../Create-Page/cards/CardPreview';
 import Footer from '../Footer/Footer';
 
+
 function CreatePage({
   avatar,
   data,

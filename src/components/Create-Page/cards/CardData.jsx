@@ -1,10 +1,11 @@
 import defaultAvatar from '../../../images/detectivenegro.jpg';
 
+
 const CardData = ({ data, avatarProfile }) => {
   const profileAvatar = avatarProfile === '' ? defaultAvatar : avatarProfile;
   console.log(avatarProfile);
   return (
-    <section className='preview__card'>
+    <section className='preview__card landing_card'>
       <section className='preview__card--project'>
         <p className='subtitle'>Personal Project Card</p>
         <hr className='line' />

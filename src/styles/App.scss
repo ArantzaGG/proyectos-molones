@@ -142,7 +142,7 @@
       height: max-content;
       border-radius: 20px;
       justify-content: center;
-      transform: translateY(-30%);
+      // transform: translateY(-30%);
       align-items: flex-start;
       border: solid 5px white;
       padding: 15px;
@@ -152,7 +152,7 @@
         width: max-content;
         height: max-content;
         padding: 20px;
-        transform: translateY(-50%);
+        // transform: translateY(-50%);
       }
 
       &--project {
@@ -387,4 +387,9 @@
   &__logo {
     width: 200px;
   }
+} 
+.landing_card{
+ 
+  position: absolute;
+
 }

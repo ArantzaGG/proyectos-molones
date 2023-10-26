@@ -4,9 +4,7 @@ import { Routes, Route } from 'react-router';
 import localStorage from '../services/localStorage';
 import CreatePage from './Create-Page/CreatePage';
 import { useLocation, matchPath } from 'react-router';
-import logo from '../images/solo-logo.png';
-import { Link } from 'react-router-dom';
-import CardData from './Create-Page/cards/CardData';
+import Landing from './Landing';
 
 function App() {
   const [error, setError] = useState('');
@@ -53,29 +51,17 @@ function App() {
     <>
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
-            <>
-              <header className='header'>
-                <img src={logo} alt='logo' className='header__logo' />
-                <p className='header__text'>Proyectos Molones</p>
-              </header>
-              <div className='landing'>
-                <img className='landing__logo' src={logo} alt='logo' />
-                <h1 className='landing__title'>Proyectos Molones</h1>
-                <h2 className='landing__subtitle'>
-                  ¿Quieres publicar tu proyecto con nosotras?
-                </h2>
-                <p className='landing__p'>¡Has llegado a la web correcta!</p>
-                <Link to='/CreatePage'>
-                  <button className='btn-Start'>Comienza Ahora</button>
-                </Link>
-              </div>
-            </>
+            <Landing
+              avatarProfile={avatarProfile}
+              avatar={avatar}
+              data={data}
+            />
           }
         />
         <Route
-          path='/CreatePage'
+          path="/CreatePage"
           element={
             <CreatePage
               updateAvatarProfile={updateAvatarProfile}

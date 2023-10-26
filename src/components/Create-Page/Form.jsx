@@ -40,7 +40,7 @@ const Form = ({
     } else if (data.job === '') {
       updateCard('El campo del trabajo es obligatorio');
     } else {
-      updateCard('');
+      updateCard('La tarjeta ha sido creada');
     }
     callToApi(data).then((response) => {
       setLinkUrl(response);
@@ -201,7 +201,7 @@ const Form = ({
       </section>
 
       <section className={`card ${hidden ? 'hidden' : ''}`}>
-        <span className=''> La tarjeta ha sido creada: </span>
+        
         <a href={linkUrl} className='' target='_blank' rel='noreferrer'>
           {linkUrl}
         </a>
