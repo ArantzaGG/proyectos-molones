@@ -18,7 +18,7 @@ const Form = ({
   const regex = /^(https?|ftp):\/\/[^\s/$?#]+\.(com|es)(\/[^\s/$?#]*)?/i;
   const [linkUrl, setLinkUrl] = useState('');
   const [hidden, setHidden] = useState(true);
-  const [imageError, setImageError] = useState(false);
+  
 
   const handleCard = () => {
     if (data.name === '') {
@@ -54,17 +54,15 @@ const Form = ({
     } else if (!/^[A-Za-z]+$/.test(data.job)) {
       updateCard('El campo del trabajo no debe contener numeros, ni caracteres especiales');
     } else if (!avatar || !avatarProfile) {
-      setImageError(true);
       updateCard('Todos los campos han sido validados, pero te falta subir las imágenes'); 
     } else {
-      setImageError(false);
       callToApi(data)
         .then((response) => {
           setLinkUrl(response);
           setHidden(false);
           updateCard('La tarjeta ha sido creada:');
         })
-        .catch((error) => {
+        .catch(() => {
           updateCard('Error al llamar a la API');
         });
     }
@@ -232,14 +230,15 @@ const Form = ({
 }
 
 Form.propTypes = {
-  data: PropTypes.string,
-  updateInput: PropTypes.string,
+  data: PropTypes.object,
+  updateInput: PropTypes.func,
   updateCard: PropTypes.func,
   error: PropTypes.string,
   avatar: PropTypes.string,
   updateAvatar: PropTypes.func,
   updateAvatarProfile: PropTypes.func,
   avatarProfile: PropTypes.string,
+ 
 };
 
 export default Form;

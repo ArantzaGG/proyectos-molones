@@ -50,8 +50,8 @@ function CreatePage({
 }
 
 CreatePage.propTypes = {
-  data: PropTypes.string,
-  updateInput: PropTypes.string,
+  data: PropTypes.object,
+  updateInput: PropTypes.func,
   updateCard: PropTypes.func,
   error: PropTypes.string,
   avatar: PropTypes.string,

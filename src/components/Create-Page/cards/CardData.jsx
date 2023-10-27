@@ -42,7 +42,7 @@ const CardData = ({ data, avatarProfile, className }) => {
   );
 };
 CardData.propTypes = {
-  data: PropTypes.string,
+  data: PropTypes.object,
   className: PropTypes.string,
   avatarProfile: PropTypes.string,
 };

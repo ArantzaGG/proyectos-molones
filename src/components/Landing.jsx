@@ -37,7 +37,7 @@ function Landing({ avatar, avatarProfile, data }) {
 
 Landing.propTypes = {
   avatar: PropTypes.string,
-  data: PropTypes.string,
+  data: PropTypes.object,
   className: PropTypes.string,
   avatarProfile: PropTypes.string,
 };
