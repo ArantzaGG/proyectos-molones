@@ -15,37 +15,59 @@ const Form = ({
   updateAvatarProfile,
   avatarProfile,
 }) => {
-  const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-  const [linkUrl, setLinkUrl] = useState("");
+  const regex = /^(https?|ftp):\/\/[^\s/$?#]+\.(com|es)(\/[^\s/$?#]*)?/i;
+  const [linkUrl, setLinkUrl] = useState('');
   const [hidden, setHidden] = useState(true);
+  const [imageError, setImageError] = useState(false);
+
   const handleCard = () => {
-    if (data.name === "") {
-      updateCard("El campo del nombre del proyecto es obligatorio");
-    } else if (data.slogan === "") {
-      updateCard("El campo slogan es obligatorio");
-    } else if (data.repo !== "" && !regex.test(data.repo)) {
-      updateCard("La URL del campo repo no es válida");
-    } else if (data.repo === "") {
-      updateCard("El campo repo es obligatorio");
-    } else if (data.demo !== "" && !regex.test(data.demo)) {
-      updateCard("La URL del campo demo no es válida");
-    } else if (data.demo === "") {
-      updateCard("El campo demo es obligatorio");
-    } else if (data.technologies === "") {
-      updateCard("El campo de las tecnologías es obligatorio");
-    } else if (data.desc === "") {
-      updateCard("El campo de la descripción es obligatorio");
-    } else if (data.autor === "") {
-      updateCard("El campo del autor es obligatorio");
-    } else if (data.job === "") {
-      updateCard("El campo del trabajo es obligatorio");
+    if (data.name === '') {
+      updateCard('El campo del nombre del proyecto es obligatorio');
+    } else if (!/^[A-Za-z]+$/.test(data.name)) {
+      updateCard('El campo del nombre no debe contener numeros, ni caracteres especiales');
+    } else if (data.slogan === '') {
+      updateCard('El campo slogan es obligatorio');
+    } else if (!/^[A-Za-z]+$/.test(data.slogan)) {
+      updateCard('El campo del slogan no debe contener numeros, ni caracteres especiales');
+    } else if (data.repo !== '' && !regex.test(data.repo)) {
+      updateCard('La URL del campo repo no es válida');
+    } else if (data.repo === '') {
+      updateCard('El campo repo es obligatorio');
+    } else if (data.demo !== '' && !regex.test(data.demo)) {
+      updateCard('La URL del campo demo no es válida');
+    } else if (data.demo === '') {
+      updateCard('El campo demo es obligatorio');
+    } else if (data.technologies === '') {
+      updateCard('El campo de las tecnologías es obligatorio');
+    } else if (!/^[A-Za-z]+$/.test(data.technologies)) {
+      updateCard('El campo de tecnologías no debe contener numeros, ni caracteres especiales');
+    } else if (data.desc === '') {
+      updateCard('El campo de la descripción es obligatorio');
+    } else if (!/^[A-Za-z]+$/.test(data.desc)) {
+      updateCard('El campo de descripción no debe contener numeros, ni caracteres especiales');
+    } else if (data.autor === '') {
+      updateCard('El campo del autor es obligatorio');
+    } else if (!/^[A-Za-z]+$/.test(data.autor)) {
+      updateCard('El campo del autor no debe contener numeros, ni caracteres especiales');
+    } else if (data.job === '') {
+      updateCard('El campo del trabajo es obligatorio');
+    } else if (!/^[A-Za-z]+$/.test(data.job)) {
+      updateCard('El campo del trabajo no debe contener numeros, ni caracteres especiales');
+    } else if (!avatar || !avatarProfile) {
+      setImageError(true);
+      updateCard('Todos los campos han sido validados, pero te falta subir las imágenes'); 
     } else {
-      updateCard("La tarjeta ha sido creada");
+      setImageError(false);
+      callToApi(data)
+        .then((response) => {
+          setLinkUrl(response);
+          setHidden(false);
+          updateCard('La tarjeta ha sido creada:');
+        })
+        .catch((error) => {
+          updateCard('Error al llamar a la API');
+        });
     }
-    callToApi(data).then((response) => {
-      setLinkUrl(response);
-      setHidden(false);
-    });
   };
 
   const handleInput = (ev) => {
