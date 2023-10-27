@@ -1,5 +1,5 @@
 import '../styles/App.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 import localStorage from '../services/localStorage';
 import CreatePage from './Create-Page/CreatePage';
@@ -31,16 +31,19 @@ function App() {
     setError(error);
   };
 
-  const [avatar, setAvatar] = useState('');
+  
   const updateAvatar = (avatar) => {
-    setAvatar(avatar);
-    data.photo = avatar;
+  setData({...data, photo: avatar})
+    
   };
 
-  const [avatarProfile, setAvatarProfile] = useState('');
+  useEffect(()=>{
+    localStorage.set("storagedData", data);
+  },[data]) 
+
   const updateAvatarProfile = (avatarProfile) => {
-    setAvatarProfile(avatarProfile);
-    data.image = avatarProfile;
+    setData({...data, image: avatarProfile})
+    
   };
 
   const { pathname } = useLocation();
@@ -54,8 +57,8 @@ function App() {
           path="/"
           element={
             <Landing
-              avatarProfile={avatarProfile}
-              avatar={avatar}
+              
+              
               data={data}
             />
           }
@@ -64,10 +67,8 @@ function App() {
           path="/CreatePage"
           element={
             <CreatePage
-              updateAvatarProfile={updateAvatarProfile}
-              avatarProfile={avatarProfile}
+              updateAvatarProfile={updateAvatarProfile}            
               updateAvatar={updateAvatar}
-              avatar={avatar}
               data={data}
               updateInput={updateInput}
               updateCard={updateCard}

@@ -75,7 +75,7 @@ function GetAvatar({ update, text}) {
 
 GetAvatar.propTypes = {
   avatar: PropTypes.string,
-  
+  update: PropTypes.func,
   text: PropTypes.string
 };
 

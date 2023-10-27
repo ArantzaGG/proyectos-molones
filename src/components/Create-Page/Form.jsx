@@ -10,11 +10,9 @@ const Form = ({
   updateInput,
   updateCard,
   error,
-  avatar,
   updateAvatar,
   updateAvatarProfile,
-  avatarProfile,
-}) => {
+ }) => {
   const regex = /^(https?|ftp):\/\/[^\s/$?#]+\.(com|es)(\/[^\s/$?#]*)?/i;
   const [linkUrl, setLinkUrl] = useState('');
   const [hidden, setHidden] = useState(true);
@@ -53,7 +51,7 @@ const Form = ({
       updateCard('El campo del trabajo es obligatorio');
     } else if (!/^[A-Za-z]+$/.test(data.job)) {
       updateCard('El campo del trabajo no debe contener numeros, ni caracteres especiales');
-    } else if (!avatar || !avatarProfile) {
+    } else if (!data.photo || !data.image) {
       updateCard('Todos los campos han sido validados, pero te falta subir las imágenes'); 
     } else {
       callToApi(data)
@@ -72,7 +70,7 @@ const Form = ({
     const id = ev.target.id;
     const value = ev.target.value;
     updateInput({ ...data, [id]: value });
-    localStorage.set("storagedData", data);
+    
   };
   const handleReset = () => {
     const emptyData = {
@@ -90,7 +88,7 @@ const Form = ({
     updateInput(emptyData);
     updateCard("");
     setHidden(true);
-    localStorage.remove("storagedData", data);
+    localStorage.clear();
   };
 
   return (
@@ -196,7 +194,6 @@ const Form = ({
       <section className="buttons-img">
         <button className="btn">
           <GetAvatar
-            avatar={avatar}
             update={updateAvatar}
             text="Subir imagen del proyecto"
           />
@@ -204,7 +201,7 @@ const Form = ({
         <button className="btn">
           <GetAvatar
             update={updateAvatarProfile}
-            avatarProfile={avatarProfile}
+            
             text="Subir tu foto personal"
           />
         </button>

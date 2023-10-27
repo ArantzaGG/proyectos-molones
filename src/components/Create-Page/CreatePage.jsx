@@ -4,12 +4,10 @@ import Form from "../Create-Page/Form";
 import CardPreview from "../Create-Page/cards/CardPreview";
 import Footer from "../Footer/Footer";
 import SubHeader from "../Header/SubHeader";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function CreatePage({
-  avatar,
   data,
-  avatarProfile,
   updateAvatarProfile,
   updateAvatar,
   updateInput,
@@ -24,19 +22,14 @@ function CreatePage({
         subTitle={
           "En esta agencia, ningún proyecto podrá esconderse. El talento quedará al descubierto."
         }
-        textButton={"Ver proyectos"} btnLink = {'/'}
+        textButton={"Ver proyectos"}
+        btnLink={"/"}
       />
       <main className="main">
-        <CardPreview
-          avatar={avatar}
-          data={data}
-          avatarProfile={avatarProfile}
-        />
+        <CardPreview data={data} />
         <Form
           updateAvatarProfile={updateAvatarProfile}
-          avatarProfile={avatarProfile}
           updateAvatar={updateAvatar}
-          avatar={avatar}
           data={data}
           updateInput={updateInput}
           updateCard={updateCard}
@@ -54,10 +47,8 @@ CreatePage.propTypes = {
   updateInput: PropTypes.func,
   updateCard: PropTypes.func,
   error: PropTypes.string,
-  avatar: PropTypes.string,
   updateAvatar: PropTypes.func,
   updateAvatarProfile: PropTypes.func,
-  avatarProfile: PropTypes.string,
 };
 
 export default CreatePage;

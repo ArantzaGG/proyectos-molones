@@ -2,9 +2,8 @@ import defaultAvatar from "../../../images/detectivenegro.jpg";
 import "../../../styles/CardPreview.scss";
 import PropTypes from "prop-types";
 
-const CardData = ({ data, avatarProfile, className }) => {
-  const profileAvatar = avatarProfile === "" ? defaultAvatar : avatarProfile;
-  console.log(avatarProfile);
+const CardData = ({ data, className }) => {
+  const profileAvatar = data.image === "" ? defaultAvatar : data.image;
   return (
     <section className={`preview__card ${className}`}>
       <section className="preview__card--project">
@@ -44,6 +43,5 @@ const CardData = ({ data, avatarProfile, className }) => {
 CardData.propTypes = {
   data: PropTypes.object,
   className: PropTypes.string,
-  avatarProfile: PropTypes.string,
 };
 export default CardData;

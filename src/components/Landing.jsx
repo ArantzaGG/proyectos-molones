@@ -5,7 +5,7 @@ import "../styles/CardPreview.scss";
 import SubHeader from "./Header/SubHeader";
 import PropTypes from "prop-types";
 
-function Landing({ avatar, avatarProfile, data }) {
+function Landing({ data }) {
   return (
     <>
       <Header />
@@ -24,9 +24,7 @@ function Landing({ avatar, avatarProfile, data }) {
         </section>
         <section className="landing_section2">
           <CardData
-            avatar={avatar}
             data={data}
-            avatarProfile={avatarProfile}
             className="landing_card"
           />
         </section>
@@ -35,11 +33,9 @@ function Landing({ avatar, avatarProfile, data }) {
   );
 }
 
-Landing.propTypes = {
-  avatar: PropTypes.string,
+Landing.propTypes = { 
   data: PropTypes.object,
   className: PropTypes.string,
-  avatarProfile: PropTypes.string,
-};
+ };
 
 export default Landing;
