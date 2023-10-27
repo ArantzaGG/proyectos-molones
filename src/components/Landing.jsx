@@ -1,10 +1,9 @@
-import logo from "../images/solo-logo.png";
-import { Link } from "react-router-dom";
 import CardData from "../components/Create-Page/cards/CardData";
 import Header from "./Header/Header";
 import "../styles/Landing.scss";
 import "../styles/CardPreview.scss";
 import SubHeader from "./Header/SubHeader";
+import PropTypes from "prop-types";
 
 function Landing({ avatar, avatarProfile, data }) {
   return (
@@ -35,4 +34,12 @@ function Landing({ avatar, avatarProfile, data }) {
     </>
   );
 }
+
+Landing.propTypes = {
+  avatar: PropTypes.string,
+  data: PropTypes.string,
+  className: PropTypes.string,
+  avatarProfile: PropTypes.string,
+};
+
 export default Landing;

@@ -15,6 +15,10 @@ function SubHeader({ title, subTitle, textButton, btnLink, desc }) {
   );
 }
 SubHeader.propTypes = {
-  title: PropTypes.string, subTitle: PropTypes.string, textButton: PropTypes.string, btnLink: PropTypes.string, desc: PropTypes.string 
-}
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+  textButton: PropTypes.string,
+  btnLink: PropTypes.string,
+  desc: PropTypes.string,
+};
 export default SubHeader;

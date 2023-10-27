@@ -207,7 +207,7 @@ const Form = ({
       </section>
     </section>
   );
-};
+}
 
 Form.propTypes = {
   data: PropTypes.string,
