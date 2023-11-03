@@ -12,4 +12,16 @@ const callToApi = (data) => {
       }
     });
 };
-export default callToApi;
+
+const getDataProjects = async () => {
+  const fetchData = await fetch("http://localhost:3000/listProject");
+  const dataJson = await fetchData.json();
+  return dataJson
+} 
+
+const object = {
+  getDataProjects: getDataProjects,
+  callToApi: callToApi
+}
+
+export default object;

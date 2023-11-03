@@ -27,10 +27,10 @@ app.listen(port, () => {
 const staticServerPathWeb = './web/dist/';
 app.use(express.static(staticServerPathWeb));
 
-app.get('/api/projects', async (req, res) =>{
+app.get('/listProject', async (req, res) =>{
     try {
       const conn = await getConnection();
-      const queryProjects = 'SELECT * FROM projects';
+      const queryProjects = 'SELECT * FROM projects INNER JOIN users ON users.idusers = projects.fk_idusers';
       const [results] = await conn.query(queryProjects);
       conn.end();
       res.json(results);

@@ -1,4 +1,4 @@
-import callToApi from "../../services/fetch";
+import api from "../../services/fetch";
 import { useState } from "react";
 import GetAvatar from "../Create-Page/GetAvatar";
 import localStorage from "../../services/localStorage";
@@ -54,7 +54,7 @@ const Form = ({
     } else if (!data.photo || !data.image) {
       updateCard('Todos los campos han sido validados, pero te falta subir las imágenes'); 
     } else {
-      callToApi(data)
+      api.callToApi(data)
         .then((response) => {
           setLinkUrl(response);
           setHidden(false);
