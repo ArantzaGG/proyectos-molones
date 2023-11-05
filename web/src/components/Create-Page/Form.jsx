@@ -1,9 +1,9 @@
-import api from "../../services/fetch";
-import { useState } from "react";
-import GetAvatar from "../Create-Page/GetAvatar";
-import localStorage from "../../services/localStorage";
-import "../../styles/Form.scss";
-import PropTypes from "prop-types";
+import api from '../../services/fetch';
+import { useState } from 'react';
+import GetAvatar from '../Create-Page/GetAvatar';
+import localStorage from '../../services/localStorage';
+import '../../styles/Form.scss';
+import PropTypes from 'prop-types';
 
 const Form = ({
   data,
@@ -12,21 +12,24 @@ const Form = ({
   error,
   updateAvatar,
   updateAvatarProfile,
- }) => {
+}) => {
   const regex = /^(https?|ftp):\/\/[^\s/$?#]+\.(com|es)(\/[^\s/$?#]*)?/i;
   const [linkUrl, setLinkUrl] = useState('');
   const [hidden, setHidden] = useState(true);
-  
 
   const handleCard = () => {
     if (data.name === '') {
       updateCard('El campo del nombre del proyecto es obligatorio');
-    } else if (!/^[A-Za-z]+$/.test(data.name)) {
-      updateCard('El campo del nombre no debe contener numeros, ni caracteres especiales');
+    } else if (/^[A-Za-z]+$/.test(data.name)) {
+      updateCard(
+        'El campo del nombre no debe contener numeros, ni caracteres especiales'
+      );
     } else if (data.slogan === '') {
       updateCard('El campo slogan es obligatorio');
-    } else if (!/^[A-Za-z]+$/.test(data.slogan)) {
-      updateCard('El campo del slogan no debe contener numeros, ni caracteres especiales');
+    } else if (/^[A-Za-z]+$/.test(data.slogan)) {
+      updateCard(
+        'El campo del slogan no debe contener numeros, ni caracteres especiales'
+      );
     } else if (data.repo !== '' && !regex.test(data.repo)) {
       updateCard('La URL del campo repo no es válida');
     } else if (data.repo === '') {
@@ -37,24 +40,35 @@ const Form = ({
       updateCard('El campo demo es obligatorio');
     } else if (data.technologies === '') {
       updateCard('El campo de las tecnologías es obligatorio');
-    } else if (!/^[A-Za-z]+$/.test(data.technologies)) {
-      updateCard('El campo de tecnologías no debe contener numeros, ni caracteres especiales');
+    } else if (/^[A-Za-z]+$/.test(data.technologies)) {
+      updateCard(
+        'El campo de tecnologías no debe contener numeros, ni caracteres especiales'
+      );
     } else if (data.desc === '') {
       updateCard('El campo de la descripción es obligatorio');
-    } else if (!/^[A-Za-z]+$/.test(data.desc)) {
-      updateCard('El campo de descripción no debe contener numeros, ni caracteres especiales');
+    } else if (/^[A-Za-z]+$/.test(data.desc)) {
+      updateCard(
+        'El campo de descripción no debe contener numeros, ni caracteres especiales'
+      );
     } else if (data.autor === '') {
       updateCard('El campo del autor es obligatorio');
-    } else if (!/^[A-Za-z]+$/.test(data.autor)) {
-      updateCard('El campo del autor no debe contener numeros, ni caracteres especiales');
+    } else if (/^[A-Za-z]+$/.test(data.autor)) {
+      updateCard(
+        'El campo del autor no debe contener numeros, ni caracteres especiales'
+      );
     } else if (data.job === '') {
       updateCard('El campo del trabajo es obligatorio');
-    } else if (!/^[A-Za-z]+$/.test(data.job)) {
-      updateCard('El campo del trabajo no debe contener numeros, ni caracteres especiales');
+    } else if (/^[A-Za-z]+$/.test(data.job)) {
+      updateCard(
+        'El campo del trabajo no debe contener numeros, ni caracteres especiales'
+      );
     } else if (!data.photo || !data.image) {
-      updateCard('Todos los campos han sido validados, pero te falta subir las imágenes'); 
+      updateCard(
+        'Todos los campos han sido validados, pero te falta subir las imágenes'
+      );
     } else {
-      api.callToApi(data)
+      api
+        .callToApi(data)
         .then((response) => {
           setLinkUrl(response);
           setHidden(false);
@@ -70,161 +84,156 @@ const Form = ({
     const id = ev.target.id;
     const value = ev.target.value;
     updateInput({ ...data, [id]: value });
-    
   };
   const handleReset = () => {
     const emptyData = {
-      name: "",
-      slogan: "",
-      repo: "",
-      demo: "",
-      technologies: "",
-      desc: "",
-      autor: "",
-      job: "",
-      photo: "",
-      image: "",
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
+      photo: '',
+      image: '',
     };
     updateInput(emptyData);
-    updateCard("");
+    updateCard('');
     setHidden(true);
     localStorage.clear();
   };
 
   return (
-    <section className="form">
-      <h2 className="title">Información</h2>
+    <section className='form'>
+      <h2 className='title'>Información</h2>
 
-      <section className="ask-info">
-        <p className="subtitle">Cuéntanos sobre el proyecto</p>
-        <hr className="line" />
+      <section className='ask-info'>
+        <p className='subtitle'>Cuéntanos sobre el proyecto</p>
+        <hr className='line' />
       </section>
 
-      <fieldset className="project">
+      <fieldset className='project'>
         <input
-          className="input"
-          type="text"
-          placeholder="Nombre del proyecto"
-          name="name"
-          id="name"
+          className='input'
+          type='text'
+          placeholder='Nombre del proyecto'
+          name='name'
+          id='name'
           onChange={handleInput}
           value={data.name}
           required
         />
         <input
-          className="input"
-          type="text"
-          name="slogan"
-          id="slogan"
-          placeholder="Slogan"
+          className='input'
+          type='text'
+          name='slogan'
+          id='slogan'
+          placeholder='Slogan'
           onChange={handleInput}
           value={data.slogan}
           required
         />
         <input
-          className="input"
-          type="text"
-          name="repo"
-          id="repo"
-          placeholder="Repo"
+          className='input'
+          type='text'
+          name='repo'
+          id='repo'
+          placeholder='Repo'
           onChange={handleInput}
           value={data.repo}
           required
         />
         <input
-          className="input"
-          type="text"
-          placeholder="Demo"
-          name="demo"
-          id="demo"
+          className='input'
+          type='text'
+          placeholder='Demo'
+          name='demo'
+          id='demo'
           onChange={handleInput}
           value={data.demo}
           required
         />
         <input
-          className="input"
-          type="text"
-          placeholder="Tecnologías"
-          name="technologies"
-          id="technologies"
+          className='input'
+          type='text'
+          placeholder='Tecnologías'
+          name='technologies'
+          id='technologies'
           onChange={handleInput}
           value={data.technologies}
           required
         />
         <textarea
-          className="textarea"
-          type="text"
-          placeholder="Descripción"
-          name="desc"
-          id="desc"
+          className='textarea'
+          type='text'
+          placeholder='Descripción'
+          name='desc'
+          id='desc'
           onChange={handleInput}
           value={data.desc}
           required
         ></textarea>
       </fieldset>
 
-      <section className="ask-info">
-        <p className="subtitle">Cuéntanos sobre la autora</p>
-        <hr className="line" />
+      <section className='ask-info'>
+        <p className='subtitle'>Cuéntanos sobre la autora</p>
+        <hr className='line' />
       </section>
 
-      <fieldset className="autor__fielset">
+      <fieldset className='autor__fielset'>
         <input
-          className="input"
-          type="text"
-          placeholder="Nombre"
-          name="autor"
-          id="autor"
+          className='input'
+          type='text'
+          placeholder='Nombre'
+          name='autor'
+          id='autor'
           onChange={handleInput}
           value={data.autor}
           required
         />
         <input
-          className="input"
-          type="text"
-          placeholder="Trabajo"
-          name="job"
-          id="job"
+          className='input'
+          type='text'
+          placeholder='Trabajo'
+          name='job'
+          id='job'
           onChange={handleInput}
           value={data.job}
           required
         />
       </fieldset>
 
-      <section className="buttons-img">
-        <button className="btn">
-          <GetAvatar
-            update={updateAvatar}
-            text="Subir imagen del proyecto"
-          />
+      <section className='buttons-img'>
+        <button className='btn'>
+          <GetAvatar update={updateAvatar} text='Subir imagen del proyecto' />
         </button>
-        <button className="btn">
+        <button className='btn'>
           <GetAvatar
             update={updateAvatarProfile}
-            
-            text="Subir tu foto personal"
+            text='Subir tu foto personal'
           />
         </button>
       </section>
-      <section className="buttons-img">
-        <button onClick={handleCard} className="btn-large">
+      <section className='buttons-img'>
+        <button onClick={handleCard} className='btn-large'>
           Crear Tarjeta
         </button>
-        <button onClick={handleReset} className="btn-large">
+        <button onClick={handleReset} className='btn-large'>
           Reset
         </button>
 
         <p>{error}</p>
       </section>
 
-      <section className={`card ${hidden ? "hidden" : ""}`}>
-        <a href={linkUrl} className="" target="_blank" rel="noreferrer">
+      <section className={`card ${hidden ? 'hidden' : ''}`}>
+        <a href={linkUrl} className='' target='_blank' rel='noreferrer'>
           {linkUrl}
         </a>
       </section>
     </section>
   );
-}
+};
 
 Form.propTypes = {
   data: PropTypes.object,
@@ -235,7 +244,6 @@ Form.propTypes = {
   updateAvatar: PropTypes.func,
   updateAvatarProfile: PropTypes.func,
   avatarProfile: PropTypes.string,
- 
 };
 
 export default Form;
