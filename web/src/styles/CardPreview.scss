@@ -119,6 +119,7 @@
           width: 60px;
           height: 80px;
           background-size: cover;
+          border-radius: 500px;
           @media all and (min-width: 768px) {
             width: 160px;
             height: 160px;
@@ -144,8 +145,10 @@
   }
 
   .landing_card{
-    transform: translateY(50%);
+    transform: translateY(10%);
     border: solid salmon;
     max-width: 500px;
     text-align: justify;
+    .job{ width: 100px;}
+    .desc{width:90%}
   }

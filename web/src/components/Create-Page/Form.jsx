@@ -223,7 +223,7 @@ const Form = ({
           Reset
         </button>
 
-        <p>{error}</p>
+        <p className='error'>{error}</p>
       </section>
 
       <section className={`card ${hidden ? 'hidden' : ''}`}>

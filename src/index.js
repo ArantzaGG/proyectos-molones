@@ -36,6 +36,6 @@ app.get('/listProject', async (req, res) =>{
       res.json(results);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Error al obtener los datos de las alumnas.' });
+      res.status(500).json({ error: 'Error al obtener los datos de los proyectos.' });
     }
   });
