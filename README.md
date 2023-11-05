@@ -1,8 +1,6 @@
 # React + Vite
 
-<<<<<<< HEAD
 
-=======
 # Proyectos Molones
 
 Crea la tarjeta de presentación de tus proyectos
