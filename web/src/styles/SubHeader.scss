@@ -1,0 +1,49 @@
+.subHeader {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    justify-content: center;
+    padding-top: 15px;
+    padding-inline: 15px;
+    margin-bottom: 15px;
+  
+    &__h2 {
+      font-size: 20px;
+  
+      @media all and (min-width: 768px) {
+        font-size: 40px;
+      }
+    }
+    &__p {
+      font-size: 12px;
+  
+      @media all and (min-width: 768px) {
+        font-size: 18px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+      }
+    }
+   
+    &__btn {
+      width: 116.4px;
+      display: flex;
+      text-decoration: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 40px;
+      margin: 0 auto;
+      padding: 5px;
+      cursor: pointer;
+  
+      @media all and (min-width: 768px) {
+        padding: 10px;
+        width: 200px;
+        height: 32px;
+        text-align: center;
+        justify-content: baseline;
+        align-items: baseline;
+      }
+    }
+  }

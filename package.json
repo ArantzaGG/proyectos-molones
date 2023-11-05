@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   "name": "my-react-app",
   "private": true,
@@ -63,3 +64,30 @@
   }
 }
 >>>>>>> 84d8e0b330430488b98b44ed329c40e0e01e6aa6
+=======
+{
+  "name": "project-promo-u-module-3-team-3",
+  "version": "1.0.0",
+  "description": "Crea la tarjeta de presentación de tus proyectos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adalab/project-promo-u-module-3-team-3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adalab/project-promo-u-module-3-team-3/issues"
+  },
+  "homepage": "https://github.com/Adalab/project-promo-u-module-3-team-3#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.3"
+  }
+}
+>>>>>>> dev

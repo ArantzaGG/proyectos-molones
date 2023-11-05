@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Special Elite';
+  background-color: #faf5e3;
+}
+
+  .main {
+    @media all and (min-width: 768px) {
+      display: flex;
+      margin-top: 20px;
+    }
+  }
+
+
+.hidden {
+  display: none;
+}
+
+
