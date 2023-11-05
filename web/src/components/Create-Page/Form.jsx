@@ -20,7 +20,7 @@ const Form = ({
   const handleCard = () => {
     if (data.name === '') {
       updateCard('El campo del nombre del proyecto es obligatorio');
-    } else if (/^[A-Za-z]+$/.test(data.name)) {
+    } else if (!/^[A-Za-z]+$/.test(data.name)) {
       updateCard(
         'El campo del nombre no debe contener numeros, ni caracteres especiales'
       );
@@ -40,25 +40,25 @@ const Form = ({
       updateCard('El campo demo es obligatorio');
     } else if (data.technologies === '') {
       updateCard('El campo de las tecnologías es obligatorio');
-    } else if (/^[A-Za-z]+$/.test(data.technologies)) {
+    } else if (!/^[A-Za-z]+$/.test(data.technologies)) {
       updateCard(
         'El campo de tecnologías no debe contener numeros, ni caracteres especiales'
       );
     } else if (data.desc === '') {
       updateCard('El campo de la descripción es obligatorio');
-    } else if (/^[A-Za-z]+$/.test(data.desc)) {
+    } else if (!/^[A-Za-z]+$/.test(data.desc)) {
       updateCard(
         'El campo de descripción no debe contener numeros, ni caracteres especiales'
       );
     } else if (data.autor === '') {
       updateCard('El campo del autor es obligatorio');
-    } else if (/^[A-Za-z]+$/.test(data.autor)) {
+    } else if (!/^[A-Za-z]+$/.test(data.autor)) {
       updateCard(
         'El campo del autor no debe contener numeros, ni caracteres especiales'
       );
     } else if (data.job === '') {
       updateCard('El campo del trabajo es obligatorio');
-    } else if (/^[A-Za-z]+$/.test(data.job)) {
+    } else if (!/^[A-Za-z]+$/.test(data.job)) {
       updateCard(
         'El campo del trabajo no debe contener numeros, ni caracteres especiales'
       );
