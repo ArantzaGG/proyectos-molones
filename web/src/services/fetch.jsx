@@ -1,5 +1,5 @@
 const callToApi = (data) => {
-  return fetch('https://dev.adalab.es/api/projectCard', {
+  return fetch('http://localhost:3000/newCard', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -12,6 +12,8 @@ const callToApi = (data) => {
       }
     });
 };
+
+
 
 const getDataProjects = async () => {
   const fetchData = await fetch("http://localhost:3000/listProject");

@@ -13,7 +13,7 @@ const Form = ({
   updateAvatar,
   updateAvatarProfile,
 }) => {
-  const regex = /^(https?|ftp):\/\/[^\s/$?#]+\.(com|es)(\/[^\s/$?#]*)?/i;
+  const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
   const [linkUrl, setLinkUrl] = useState('');
   const [hidden, setHidden] = useState(true);
 
@@ -26,7 +26,7 @@ const Form = ({
       );
     } else if (data.slogan === '') {
       updateCard('El campo slogan es obligatorio');
-    } else if (/^[A-Za-z]+$/.test(data.slogan)) {
+    } else if (!/^[A-Za-z]+$/.test(data.slogan)) {
       updateCard(
         'El campo del slogan no debe contener numeros, ni caracteres especiales'
       );
