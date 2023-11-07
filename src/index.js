@@ -5,6 +5,7 @@ const mysql = require('mysql2/promise');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.set('view engine', 'ejs')
 
 const port = 3000;
 
@@ -41,6 +42,24 @@ app.get('/listProject', async (req, res) => {
       .json({ error: 'Error al obtener los datos de los proyectos.' });
   }
 });
+app.get('/newCard/:idprojects', async (req, res) => {
+  const id = req.params.idprojects;
+  const selectProject =
+    'SELECT * FROM projects INNER JOIN users ON users.idusers = projects.fk_idusers WHERE idprojects = ?';
+    const conn =await getConnection();
+    const [results] = await conn.query(selectProject, [id]);
+    if (results.length === 0){
+      res.render('notFound');
+    }else{
+      res.render('detailCard',{
+        project: results [0]
+
+      });
+    }
+    console.log(results[0])
+    conn.end();
+});
+
 
 app.post('/newCard', async (req, res) => {
   const newCard = req.body;
@@ -64,12 +83,17 @@ app.post('/newCard', async (req, res) => {
   const [resultsInsert] = await conn.query(sqlProject, valuesProject);
   let response = {
     success: true,
-    cardURL: `https://localhost:3000/newCard/${resultsInsert.insertId}`,
+    cardURL: `http://localhost:3000/newCard/${resultsInsert.insertId}`,
   };
   res.json(response);
   conn.end();
 });
 
 
+
+
 const staticServerPathWeb = './web/dist/';
 app.use(express.static(staticServerPathWeb));
+
+const staticServerCSS = './src/public-css';
+app.use(express.static(staticServerCSS));
