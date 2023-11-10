@@ -5,7 +5,7 @@ const mysql = require('mysql2/promise');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 const port = 3000;
 
@@ -24,8 +24,6 @@ async function getConnection() {
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
-
-
 
 app.get('/listProject', async (req, res) => {
   try {
@@ -46,20 +44,18 @@ app.get('/newCard/:idprojects', async (req, res) => {
   const id = req.params.idprojects;
   const selectProject =
     'SELECT * FROM projects INNER JOIN users ON users.idusers = projects.fk_idusers WHERE idprojects = ?';
-    const conn =await getConnection();
-    const [results] = await conn.query(selectProject, [id]);
-    if (results.length === 0){
-      res.render('notFound');
-    }else{
-      res.render('detailCard',{
-        project: results [0]
-
-      });
-    }
-    console.log(results[0])
-    conn.end();
+  const conn = await getConnection();
+  const [results] = await conn.query(selectProject, [id]);
+  if (results.length === 0) {
+    res.render('notFound');
+  } else {
+    res.render('detailCard', {
+      project: results[0],
+    });
+  }
+  console.log(results[0]);
+  conn.end();
 });
-
 
 app.post('/newCard', async (req, res) => {
   const newCard = req.body;
@@ -89,11 +85,11 @@ app.post('/newCard', async (req, res) => {
   conn.end();
 });
 
-
-
-
 const staticServerPathWeb = './web/dist/';
 app.use(express.static(staticServerPathWeb));
 
 const staticServerCSS = './src/public-css';
 app.use(express.static(staticServerCSS));
+
+const staticServerImg = './src/images';
+app.use(express.static(staticServerImg));

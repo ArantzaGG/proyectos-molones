@@ -10,9 +10,7 @@
     &__logo {
       width: 100px;
       animation: coolTitleAnimation 3s ease-in-out infinite;
-      @media all and (min-width: 768px) {
-        margin-bottom: -30px;
-      }
+  
   
       @keyframes coolTitleAnimation {
         0% {
@@ -29,6 +27,7 @@
     &__text {
       font-size: 15px;
       width: 100px;
+      transform: translateY(-10%);
     }
   
     @media all and (min-width: 768px) {

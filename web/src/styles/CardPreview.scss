@@ -109,6 +109,11 @@
           color: black;
           gap: 5px;
         }
+
+        a {
+          text-decoration: none;
+          color: black;
+        }
       }
       &--autor {
         display: flex;
