@@ -151,7 +151,8 @@
 
   .landing_card{
     transform: translateY(10%);
-    border: solid salmon;
+    border: 3px solid black;
+    max-height: 800px;
     max-width: 500px;
     text-align: justify;
     .job{ width: 100px;}

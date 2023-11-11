@@ -23,6 +23,7 @@ main {
   height: 30vh;
   padding: 20px;
   margin-block: 5px;
+  border-radius: 3%;
 }
 
 .preview__card {
