@@ -123,6 +123,7 @@
       flex-direction: column;
       gap: 5px;
       text-align: center;
+   
 
       .imageProfile {
         width: 60px;
@@ -138,6 +139,7 @@
       }
       .job {
         font-size: 10px;
+        margin-top:10px;
 
         @media all and (min-width: 768px) {
           font-size: 14px;
