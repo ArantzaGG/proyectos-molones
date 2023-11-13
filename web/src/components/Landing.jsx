@@ -53,7 +53,7 @@ function Landing() {
         <section className="landing_section2">
           {listProject.map((project) => (
             <div key={project.idprojects} className="landing_card_container">
-              <button onClick={() => handleDeleteProject(project.idprojects)}>
+              <button className='button' onClick={() => handleDeleteProject(project.idprojects)}>
                 x
               </button>
               <a href={`http://localhost:3000/newCard/${project.idprojects}`}>

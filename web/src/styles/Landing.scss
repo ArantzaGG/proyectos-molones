@@ -20,4 +20,17 @@ a{
     margin-inline: 5vw;
     gap: 5vw;
   }
+
+}
+.landing_card_container {
+  position: relative;
+}
+
+.button {
+  width: 50px;
+  height: 20px;
+  font: 50px;
+  position: absolute;
+  top: 0;
+  right: 90%;
 }
