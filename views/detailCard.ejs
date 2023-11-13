@@ -1,69 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Card</title>
+    <link rel="stylesheet" href="/main.css" />
+    <script
+      src="https://kit.fontawesome.com/66349fc88a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Card</title>
-  <link rel="stylesheet" href="/main.css" />
-  <script src="https://kit.fontawesome.com/66349fc88a.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
-</head>
+  <body>
+    <header class="header">
+      <a>
+        <img src="/solo-logo.png" alt="logo" class="header__logo" />
+      </a>
+      <p class="header__text">Proyectos Molones</p>
+    </header>
+    <main>
+      <section class="preview">
+        <div
+          class="preview__image"
+          style="background-image: url(<%=project.photo%>)"
+        ></div>
+        <section class="preview__card">
+          <section class="preview__card--project">
+            <p class="subtitle">Personal Project Card</p>
+            <hr class="line" />
 
+            <h2 class="title"><%=project.name %></h2>
+            <p class="slogan"><%=project.slogan%></p>
+            <p class="desc"><%=project.desc%></p>
+            <section class="technologies">
+              <p class="text"><%=project.technologies%></p>
+              <div class="icons">
+                <a
+                  href="<%=project.repo %>"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href="<%=project.demo%>"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-globe"></i>
+                </a>
+              </div>
+            </section>
+          </section>
 
-<body>
-  <header class="header">
-    <a>
-      <img src="/solo-logo.png" alt="logo" class="header__logo" />
-    </a>
-    <p class="header__text">Proyectos Molones</p>
-  </header>
-  <main>
-    <section class="preview">
-      <div class="preview__image" style="background-image: url(<%=project.photo%>)"></div>
-      <section class="preview__card">
-        <section class="preview__card--project">
-          <p class="subtitle">Personal Project Card</p>
-          <hr class="line" />
-
-          <h2 class="title">
-            <%=project.name %>
-          </h2>
-          <p class="slogan">
-            <%=project.slogan%>
-          </p>
-          <p class="desc">
-            <%=project.desc%>
-          </p>
-          <section class="technologies">
-            <p class="text">
-              <%=project.technologies%>
-            </p>
-            <div class="icons">
-              <a href="<%=project.repo %>" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="<%=project.demo%>" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-globe"></i>
-              </a>
+          <section class="preview__card--autor">
+            <div
+              class="imageProfile"
+              style="background-image: url(<%=project.image%>)"
+            ></div>
+            <div class="jobname">
+              <p class="job"><%=project.job%></p>
+              <h2 class="name"><%=project.autor%></h2>
             </div>
           </section>
         </section>
-
-        <section class="preview__card--autor">
-          <div class="imageProfile" style="background-image: url(<%=project.image%>)"></div>
-          <div class="jobname">
-            <p class="job">
-              <%=project.job%>
-            </p>
-            <p class="name">
-              <%=project.autor%>
-            </p>
-          </div>
-        </section>
       </section>
-    </section>
-  </main>
-</body>
-
+    </main>
+  </body>
 </html>
