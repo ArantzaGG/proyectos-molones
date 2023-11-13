@@ -36,8 +36,14 @@ function Landing() {
         </section>
         <section className='landing_section2'>
           {listProject.map((project, index) => {
-            console.log(project);
-            return <CardData key={index} data={project} className='landing_card' />;
+            return (
+              <a
+                href={`http://localhost:3000/newCard/${project.idprojects}`}
+                key={index}
+              >
+                <CardData key={index} data={project} className='landing_card' />
+              </a>
+            );
           })}
         </section>
       </div>
