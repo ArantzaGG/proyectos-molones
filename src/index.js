@@ -85,6 +85,25 @@ app.post('/newCard', async (req, res) => {
   conn.end();
 });
 
+//delete
+app.delete('/deleteProject/:id', async (req, res) => {
+  const projectId = req.params.id;
+
+  try {
+    const connection = await getConnection();
+
+    const [result] = await connection.query(
+      'DELETE FROM projects WHERE idprojects = ?',
+      [projectId]
+    );
+    connection.end();
+    res.json({ success: true, message: 'Project deleted successfully.' });
+  } catch (error) {
+    console.error('Error deleting project:', error);
+    res.status(500).json({ success: false, error: 'Error deleting project.' });
+  }
+});
+
 const staticServerPathWeb = './web/dist/';
 app.use(express.static(staticServerPathWeb));
 
