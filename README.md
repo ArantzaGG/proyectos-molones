@@ -1,5 +1,6 @@
 # React + Vite
 
+
 # Proyectos Molones
 
 Crea la tarjeta de presentación de tus proyectos
@@ -71,3 +72,4 @@ Este proyecto se ha desarrollado utilizando las siguientes tecnologías:
 - Arantxa Cristina Darling y Barbara
 
 
+>>>>>>> 84d8e0b330430488b98b44ed329c40e0e01e6aa6
