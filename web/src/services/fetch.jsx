@@ -1,5 +1,5 @@
 const callToApi = (data) => {
-  return fetch('http://localhost:3000/newCard', {
+  return fetch('https://reactives-detectives.onrender.com/newCard', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -14,13 +14,13 @@ const callToApi = (data) => {
 };
 
 const getDataProjects = async () => {
-  const fetchData = await fetch('http://localhost:3000/listProject');
+  const fetchData = await fetch('https://reactives-detectives.onrender.com/listProject');
   const dataJson = await fetchData.json();
   return dataJson;
 };
 const deleteProject = async (projectId) => {
   const response = await fetch(
-    `http://localhost:3000/deleteProject/${projectId}`,
+    `https://reactives-detectives.onrender.com/deleteProject/${projectId}`,
     {
       method: 'DELETE',
     }

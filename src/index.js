@@ -79,7 +79,7 @@ app.post('/newCard', async (req, res) => {
   const [resultsInsert] = await conn.query(sqlProject, valuesProject);
   let response = {
     success: true,
-    cardURL: `http://localhost:3000/newCard/${resultsInsert.insertId}`,
+    cardURL: `https://reactives-detectives.onrender.com/newCard/${resultsInsert.insertId}`,
   };
   res.json(response);
   conn.end();

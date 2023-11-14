@@ -59,7 +59,7 @@ function Landing() {
               >
                 <i className="fa-solid fa-trash fa-beat-fade fa-lg"></i>
               </button>
-              <a href={`http://localhost:3000/newCard/${project.idprojects}`}>
+              <a href={`https://reactives-detectives.onrender.com/newCard/${project.idprojects}`}>
                 <CardData
                   key={project.idprojects}
                   data={project}
