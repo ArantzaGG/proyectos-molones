@@ -7,6 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.set('view engine', 'ejs');
 
+
 const port = 3000;
 
 async function getConnection() {

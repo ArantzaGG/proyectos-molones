@@ -16,6 +16,7 @@
 a{
   text-decoration: none;
   color: black;
+  cursor: url('../images/huella-dactilar.png'), pointer;
 }
   &_section2 {
     display: flex;
@@ -38,5 +39,5 @@ a{
   top: 0;
   right: 90%;
   border: none;
-  cursor: url('../images/huella-dactilar.png'), auto;
+  cursor: url('../images/huella-dactilar.png'), pointer;
 }
