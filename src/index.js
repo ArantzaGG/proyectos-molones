@@ -104,7 +104,7 @@ app.delete('/deleteProject/:id', async (req, res) => {
   }
 });
 
-const staticServerPathWeb = './web/dist/';
+const staticServerPathWeb = './src/public-react';
 app.use(express.static(staticServerPathWeb));
 
 const staticServerCSS = './src/public-css';
