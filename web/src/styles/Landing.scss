@@ -1,0 +1,36 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  margin-top: 50px;
+  &__logo {
+    width: 200px;
+  }
+a{
+  text-decoration: none;
+  color: black;
+}
+  &_section2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-inline: 5vw;
+    gap: 5vw;
+  }
+
+}
+.landing_card_container {
+  position: relative;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  right: 90%;
+  border: none;
+}
