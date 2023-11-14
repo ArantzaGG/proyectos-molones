@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import api from '../services/fetch';
 import CardData from '../components/Create-Page/cards/CardData';
@@ -38,8 +38,8 @@ function Landing() {
   return (
     <>
       <Header />
-      <div className="landing">
-        <section className="landing__section1">
+      <div className='landing'>
+        <section className='landing__section1'>
           <SubHeader
             title={'Proyectos Molones'}
             subTitle={'¿Te gustaría darte a conocer?'}
@@ -50,17 +50,20 @@ function Landing() {
             btnLink={'/CreatePage'}
           />
         </section>
-        <section className="landing_section2">
+        <section className='landing_section2'>
           {listProject.map((project) => (
-            <div key={project.idprojects} className="landing_card_container">
-              <button className='button' onClick={() => handleDeleteProject(project.idprojects)}>
-                x
+            <div key={project.idprojects} className='landing_card_container'>
+              <button
+                className='button'
+                onClick={() => handleDeleteProject(project.idprojects)}
+              >
+                <i className="fa-solid fa-trash fa-beat-fade fa-lg"></i>
               </button>
               <a href={`http://localhost:3000/newCard/${project.idprojects}`}>
                 <CardData
                   key={project.idprojects}
                   data={project}
-                  className="landing_card"
+                  className='landing_card'
                 />
               </a>
             </div>
