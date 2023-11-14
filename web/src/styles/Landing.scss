@@ -1,3 +1,8 @@
+* {
+  cursor: url('../images/detective.png'), auto;
+}
+
+
 .landing {
   display: flex;
   flex-direction: column;
@@ -33,4 +38,5 @@ a{
   top: 0;
   right: 90%;
   border: none;
+  cursor: url('../images/huella-dactilar.png'), auto;
 }
