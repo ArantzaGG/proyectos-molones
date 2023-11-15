@@ -120,7 +120,7 @@ main {
 .header__logo {
   width: 100px;
   animation: coolTitleAnimation 3s ease-in-out infinite;
-  cursor: url('../images/huella-dactilar.png'), pointer;
+  cursor: pointer;
 }
 
 @keyframes coolTitleAnimation {

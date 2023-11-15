@@ -77,7 +77,7 @@
   .btn {
     margin: 2px;
     padding: 2px;
-    cursor: url('../images/huella-dactilar.png'), pointer;
+    cursor: pointer;
    
     @media all and (min-width: 768px) {
       width: 200px;
@@ -87,7 +87,7 @@
   }
 
   .btn-large {
-    cursor: url('../images/huella-dactilar.png'), pointer;
+    cursor: pointer;
     padding: 2px;
   
     @media all and (min-width: 768px) {
