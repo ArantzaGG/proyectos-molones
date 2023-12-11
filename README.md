@@ -1,4 +1,4 @@
-# React + Vite
+
 
 
 # Proyectos Molones
@@ -66,10 +66,10 @@ Este proyecto se ha desarrollado utilizando las siguientes tecnologías:
 - React
 - HTML
 - CSS
+- MySQL 
 
 ## Autores
 
-- Arantxa Cristina Darling y Barbara
+- Arantza, Cristina, Darling y Barbara
 
 
->>>>>>> 84d8e0b330430488b98b44ed329c40e0e01e6aa6
