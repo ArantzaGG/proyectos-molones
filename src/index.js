@@ -7,19 +7,21 @@ app.use(cors());
 app.use(express.json());
 app.set('view engine', 'ejs');
 
-
 const port = 3000;
 
 async function getConnection() {
-  const connection = await mysql.createConnection({
-    host: 'sql.freedb.tech',
-    user: 'freedb_reactiveDetectives',
-    password: 'jJVJ$$p#s%2SpCg',
-    database: 'freedb_MisProyectos',
-  });
-
-  connection.connect();
-  return connection;
+  try {
+    const connection = await mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '12aran12',
+      database: 'proyectorium',
+    });
+    return connection;
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+    throw error; // Lanzar el error para ser manejado en la ruta
+  }
 }
 
 app.listen(port, () => {
