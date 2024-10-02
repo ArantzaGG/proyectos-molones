@@ -14,8 +14,8 @@ async function getConnection() {
   const connection = await mysql.createConnection({
     host: 'sql.freedb.tech',
     user: 'freedb_reactiveDetectives',
-    password: 'SVDJ$*k973B?AtX',
-    database: 'freedb_ProyectosMolones',
+    password: 'jJVJ$$p#s%2SpCg',
+    database: 'freedb_MisProyectos',
   });
 
   connection.connect();
@@ -80,7 +80,7 @@ app.post('/newCard', async (req, res) => {
   const [resultsInsert] = await conn.query(sqlProject, valuesProject);
   let response = {
     success: true,
-    cardURL: `https://reactives-detectives.onrender.com/newCard/${resultsInsert.insertId}`,
+    cardURL: `https://proyectorium.onrender.com/newCard/${resultsInsert.insertId}`,
   };
   res.json(response);
   conn.end();

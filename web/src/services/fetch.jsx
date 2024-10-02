@@ -1,5 +1,5 @@
 const callToApi = (data) => {
-  return fetch('https://reactives-detectives.onrender.com/newCard', {
+  return fetch('https://proyectorium.onrender.com/newCard', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -14,13 +14,13 @@ const callToApi = (data) => {
 };
 
 const getDataProjects = async () => {
-  const fetchData = await fetch('https://reactives-detectives.onrender.com/listProject');
+  const fetchData = await fetch('https://proyectorium.onrender.com/listProject');
   const dataJson = await fetchData.json();
   return dataJson;
 };
 const deleteProject = async (projectId) => {
   const response = await fetch(
-    `https://reactives-detectives.onrender.com/deleteProject/${projectId}`,
+    `https://proyectorium.onrender.com/deleteProject/${projectId}`,
     {
       method: 'DELETE',
     }
